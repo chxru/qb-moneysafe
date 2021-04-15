@@ -50,7 +50,7 @@ function SetClosestSafe()
     ClosestSafe = current
     if ClosestSafe ~= nil then
         if current == "police" then
-            IsAuthorized = exports['police']:IsArmoryWhitelist()
+            IsAuthorized = exports['qb-policejob']:IsArmoryWhitelist()
         end
     end
 end
