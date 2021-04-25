@@ -110,9 +110,7 @@ AddEventHandler('qb-moneysafe:server:WithdrawMoney', function(safe, amount)
         QBCore.Functions.ExecuteSql(false, "UPDATE `moneysafes` SET money = '"..Config.Safes[safe].money.."', transactions = '"..json.encode(Config.Safes[safe].transactions).."' WHERE `safe` = '"..safe.."'")
         TriggerClientEvent('qb-moneysafe:client:UpdateSafe', -1, Config.Safes[safe], safe)
         TriggerClientEvent('QBCore:Notify', src, "You have $"..amount..",- taken out of safe!", "success")
-       -- Player.Functions.AddMoney('cash', amount)
-        Player.Functions.AddItem("cash", amount, false) 
-		TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['cash'], "add")
+        Player.Functions.AddMoney('cash', amount)
     else
         TriggerClientEvent('QBCore:Notify', src, "There is not enough money in the safe", "error")
     end
